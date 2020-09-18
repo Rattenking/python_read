@@ -15,7 +15,7 @@ bookRule = [
     "ruleChapterPrev": "//div[@class=\"bottem2\"]/a[2]/@href",
     "ruleChapterList": "//div[@class=\"bottem2\"]/a[3]/@href",
     "ruleChapterNext": "//div[@class=\"bottem2\"]/a[4]/@href",
-    "ruleSearchListName": "//p[@class=\"line\"]/a[@class=\"blue\"]/text()",
-    "ruleSearchListUrl": "//p[@class=\"line\"]/a[@class=\"blue\"]/@href",
+    "ruleSearchListName": "//td[@class=\"odd\"]/a/text()",
+    "ruleSearchListUrl": "//td[@class=\"odd\"]/a/@href",
   },
 ]

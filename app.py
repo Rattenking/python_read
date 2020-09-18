@@ -25,7 +25,7 @@ def index():
   return render_template('find.html')
 
 #搜索书列表
-@app.route('/findlist/',methods=['POST','GET'])
+@app.route('/findlist',methods=['POST','GET'])
 def findlist():
   if request.method == 'POST':
     result = request.form
@@ -43,17 +43,16 @@ def findlist():
       # 书本列表
       book_names = html.xpath(item["ruleSearchListName"])
       book_urls = html.xpath(item["ruleSearchListUrl"])
-
       print(item["ruleSearchListName"])
       print(item["ruleSearchListUrl"])
       print(book_names)
       print(book_urls)
-      print(item["bookSourceId"])
+      
       for idx,book in enumerate(book_names):
-        print("===================>" + book)
+        url = re.sub(r'^https://www.kuxiaoshuo.com', "", book_urls[idx])
         lst.append({
           'bookName': book,
-          'bookUrl': book_urls[idx],
+          'bookUrl': url,
           'bookId': item["bookSourceId"]
         })
       print(lst)

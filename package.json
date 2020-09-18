@@ -5,8 +5,9 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
+    "dev": "python app.py",
     "all": "concurrently \"git st\" \"git add *\"  \"git commit -m \"提交说明\"\" \"git co master\" \"git pull\" \"git merge dev\" \"git co push\" \"git co dev\"",
-    "alland": "git st && git add * && git commit -m \"默认说明文档更新 202009181703\" && git co master && git pull && git merge dev && git push && git co dev"
+    "alland": "git st && git add * && git commit -m \"优化搜索列表的查找正则 202009181723\" && git co master && git pull && git merge dev && git push && git co dev"
   },
   "repository": {
     "type": "git",
