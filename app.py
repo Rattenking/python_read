@@ -35,18 +35,11 @@ def findlist():
     for item in booksources:
       print(item)
       req = requests.get(item["ruleSearchUrl"] + bookname)
-      print(item["ruleSearchUrl"])
       encode_content = withDataCode(req)
-      print(encode_content)
       html = etree.HTML(encode_content)
-      print(html)
       # 书本列表
       book_names = html.xpath(item["ruleSearchListName"])
       book_urls = html.xpath(item["ruleSearchListUrl"])
-      print(item["ruleSearchListName"])
-      print(item["ruleSearchListUrl"])
-      print(book_names)
-      print(book_urls)
       
       for idx,book in enumerate(book_names):
         url = re.sub(r'^https://www.kuxiaoshuo.com', "", book_urls[idx])
