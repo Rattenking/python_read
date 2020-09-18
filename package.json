@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "python app.py",
     "all": "concurrently \"git st\" \"git add *\"  \"git commit -m \"提交说明\"\" \"git co master\" \"git pull\" \"git merge dev\" \"git co push\" \"git co dev\"",
-    "alland": "git st && git add * && git commit -m \"搜索列表代码优化 202009181723\" && git co master && git pull && git merge dev && git push && git co dev"
+    "alland": "git st && git add * && git commit -m \"给搜索界面添加背景 202009181723\" && git co master && git pull && git merge dev && git push && git co dev"
   },
   "repository": {
     "type": "git",
