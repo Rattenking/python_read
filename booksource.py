@@ -1,0 +1,21 @@
+bookRule = [
+  {
+    "bookSourceId": "10000",
+    "bookSourceGroup": "",
+    "bookSourceName": "酷小说",
+    "bookSourceUrl": "https://www.kuxiaoshuo.com",
+    "ruleSearchUrl": "https://www.kuxiaoshuo.com/modules/article/search.php?searchkey=",
+    "httpUserAgent": "",
+    "ruleBookAuthor": "//div[@id=\"info\"]/h1[1]/text()",
+    "ruleBookContent": "//div[@class=\"content\"]/text()",
+    "ruleBookName": "//div[@id=\"info\"]/h1/text()",
+    "ruleChapterName": "//div[@id=\"list\"]/dl/dd/a/text()",
+    "ruleChapterUrl": "//div[@id=\"list\"]/dl/dd/a/@href",
+    "ruleChapterContent": "//div[@id=\"content\"]/text()",
+    "ruleChapterPrev": "//div[@class=\"bottem2\"]/a[2]/@href",
+    "ruleChapterList": "//div[@class=\"bottem2\"]/a[3]/@href",
+    "ruleChapterNext": "//div[@class=\"bottem2\"]/a[4]/@href",
+    "ruleSearchListName": "//p[@class=\"line\"]/a[@class=\"blue\"]/text()",
+    "ruleSearchListUrl": "//p[@class=\"line\"]/a[@class=\"blue\"]/@href",
+  },
+]

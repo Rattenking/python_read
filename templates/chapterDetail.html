@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>章节详情</title>
+</head>
+
+<body>
+  <div>
+    {% for item in result %}
+    <div>
+      {{ item }}
+    </div>
+    {% endfor %}
+  </div>
+  <div>
+    {% for item in chapter_btns %}
+      <a href="{{item.url}}">{{item.title}}</a>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
