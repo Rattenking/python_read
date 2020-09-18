@@ -6,7 +6,7 @@
   "devDependencies": {},
   "scripts": {
     "all": "concurrently \"git st\" \"git add *\"  \"git commit -m \"提交说明\"\" \"git co master\" \"git pull\" \"git merge dev\" \"git co push\" \"git co dev\"",
-    "alland": "git st && git add * && git commit -m \"修改提交说明文本 202009181646\" && git co master && git pull && git merge dev && git push && git co dev"
+    "alland": "git st && git add * && git commit -m \"默认说明文档更新 202009181703\" && git co master && git pull && git merge dev && git push && git co dev"
   },
   "repository": {
     "type": "git",
