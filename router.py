@@ -19,19 +19,20 @@ def withDataCode(r):
     encode_content = r.content.decode(encoding, 'replace') 
   return encode_content
 
+def getEtreeHtml(url):
+  req = requests.get(url)
+  encode_content = withDataCode(req)
+  html = etree.HTML(encode_content)
+  return html
 
 def getSearchList(request):
-  print(request)
   if request.method == 'POST':
     result = request.form
     bookname = result["bookname"]
     booksources = booksource.bookRule
     lst = []
     for item in booksources:
-      print(item)
-      req = requests.get(item["ruleSearchUrl"] + bookname)
-      encode_content = withDataCode(req)
-      html = etree.HTML(encode_content)
+      html = getEtreeHtml(item["ruleSearchUrl"] + bookname)
       # 书本列表
       book_names = html.xpath(item["ruleSearchListName"])
       book_urls = html.xpath(item["ruleSearchListUrl"])
@@ -43,7 +44,6 @@ def getSearchList(request):
           'bookUrl': url,
           'bookId': item["bookSourceId"]
         })
-      print(lst)
     return lst
 
 def getChapterList(bookSourceId,bookId):
@@ -54,10 +54,7 @@ def getChapterList(bookSourceId,bookId):
       curBookSource = item
 
   # 查找当前书源下当前书本的章节列表
-  req = requests.get(curBookSource["bookSourceUrl"] + "/" + bookId + "/")
-  encode_content = withDataCode(req)
-  html = etree.HTML(encode_content)
-  print(encode_content)
+  html = getEtreeHtml(curBookSource["bookSourceUrl"] + "/" + bookId + "/")
   chapter_names = html.xpath(curBookSource["ruleChapterName"])
   chapter_urls = html.xpath(curBookSource["ruleChapterUrl"])
 
@@ -80,10 +77,8 @@ def getChapterDetail(bookSourceId,bookId,chapterId):
       curBookSource = item
   
   # 查找章节详情
-  req = requests.get(curBookSource["bookSourceUrl"] + "/" + bookId + "/" + chapterId + ".html")
-  encode_content = withDataCode(req)
-  html = etree.HTML(encode_content)
-  print(encode_content)
+  html = getEtreeHtml(curBookSource["bookSourceUrl"] + "/" + bookId + "/" + chapterId + ".html")
+  
   chapter_details = html.xpath(curBookSource["ruleChapterContent"])
   chapter_prev = html.xpath(curBookSource["ruleChapterPrev"])
   chapter_list = html.xpath(curBookSource["ruleChapterList"])
