@@ -3,17 +3,30 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>搜索</title>
+  <script src="http://blog.yajunliang.com/js/rem.js"></script>
   <style>
-    body{background: url('http://blog.yajunliang.com/images/bg/%E6%8A%A4%E7%9C%BC%E6%BC%AB%E7%BB%BF.jpg') no-repeat top center/100% auto;}
+    body{
+      background: url('http://blog.yajunliang.com/images/bg/%E6%8A%A4%E7%9C%BC%E6%BC%AB%E7%BB%BF.jpg') no-repeat top
+      center fixed;
+      background-size: 100% 100vh;
+      font-size: 0.3rem;
+    }
   </style>
 </head>
 
 <body>
 
-  <form action="http://localhost:5000/findlist" method="POST">
+  <form action="http://localhost:5000/" method="POST">
     <p><input type="text" name="bookname" placeholder="书名或作者名" /></p>
     <p><input type="submit" value="搜索" /></p>
   </form>
+  <div>
+    {% for item in result %}
+    <div>
+      <a href="/{{item.bookId}}{{item.bookUrl}}"> {{ item.bookName }} </a>
+    </div>
+    {% endfor %}
+  </div>
 </body>
 
 </html>
